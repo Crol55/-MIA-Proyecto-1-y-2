@@ -1,0 +1,16 @@
+digraph G{
+node [fontname="Arial"];
+node [shape=none]
+a0[label=<<TABLE border="2" cellspacing="1" cellpadding="20">
+<TR>
+<TD rowspan="2" bgcolor="brown">  MBR<BR/>0.00162125%</TD>
+<TD rowspan="2" bgcolor="Chocolate"> PRIMARIA<BR/>12.5 %<BR/>Part11</TD>
+<TD rowspan="2" bgcolor="DimGray"> LIBRE <BR/>12.5 %</TD>
+<TD rowspan="2" bgcolor="Chocolate"> PRIMARIA<BR/>6.25 %<BR/>Part12</TD>
+<TD rowspan="2" bgcolor="DimGray"> LIBRE <BR/>6.25 %</TD>
+<TD rowspan="2" bgcolor="Chocolate"> PRIMARIA<BR/>12.5 %<BR/>Part13</TD>
+<TD bgcolor="ForestGreen"> EXTENDIDA<BR/>6.25 %<BR/>Part14</TD>
+<TD rowspan="2" bgcolor="DimGray"> LIBRE <BR/>43.7484 %</TD>
+</TR>
+</TABLE>>];
+}
