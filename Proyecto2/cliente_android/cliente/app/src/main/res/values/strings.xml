@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">INICIO DE SESION NUBE</string>
+    <string name="usr">Username</string>
+    <string name="pwd">Contraseña</string>
+    <string name="login">LOGIN</string>
+    <string name="usuario">BIENVENIDO USUARIO</string>
+    <string name="admin">BIENVENIDO ADMINISTRADOR</string>
+</resources>

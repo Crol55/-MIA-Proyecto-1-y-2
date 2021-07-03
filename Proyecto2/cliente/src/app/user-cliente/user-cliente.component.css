@@ -1,0 +1,23 @@
+.tablas{
+
+    width:100%;
+}
+
+.column {
+    
+    width:400px;
+    float:left
+}
+h2.h2 { 
+    text-align: center;
+}
+
+.mi-navbar a:hover{
+    background: rgba(255, 255, 255, .1)
+}
+
+
+.desconocido{
+    border: 1px solid black;
+    height: 200px;
+}

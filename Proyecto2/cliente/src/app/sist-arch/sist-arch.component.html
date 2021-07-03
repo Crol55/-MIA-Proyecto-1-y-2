@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+
+<body *ngIf="USUARIOVALIDO">
+  
+
+ <!-- <ul class="bg_">
+      <li *ngFor ="let inodo of inodos;">
+        <h1>{{inodo}}</h1>
+      </li>
+  </ul>
+
+  <div>
+      <ul>
+          <li>
+            <span class="caret">/</span>
+        <ul class="carpetita active">
+        <li>
+        <span class="caret">/home</span>
+        <ul class="carpetita active">
+        <li>
+        <span class="caret">/etc2</span>
+        </li>
+        </ul></li>
+        <li>
+        <span class="caret">/etc</span>
+        </li>
+        <li>
+        <span class="caret">/etc2</span>
+        <ul class="carpetita active">
+        <li> <span class="archivo" id="2-5">/a.txt</span>
+        </li>
+        </ul></li>
+        </ul>
+          </li><div id="demo" class="active" [innerHtml]="definitiva"></div>
+        </ul>
+  </div>-->
+
+
+  
+  
+
+<div class="container">
+  <div class="row">
+    <div class="col bg-dark ">
+      <button type="button" class="btn btn-success"(click)="addListeners()"> Ver Sistema de archivos</button>
+    <br><br>
+      <ul>
+        <ng-template #recursiveList let-list >
+          <li *ngFor="let item of list; let last = last" >
+            <span class={{item.algo}} id="{{item.actual}}">{{item.title}}</span>
+            <ul *ngIf="item.children.length > 0" class="carpetita active">
+              <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }"></ng-container>
+            </ul>
+          </li>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: list }"></ng-container>
+      </ul>
+  
+      <button type="button" class="btn btn-primary" (click)="Visualizar()">Visualizar</button>
+
+    </div>
+
+    <div class="col" >
+        <div *ngIf="Area">
+            <h1>MOSTRAR EN FORMA DE CARPETAS</h1>
+        </div>
+        <div id="demo" *ngIf="!Area" [innerHtml]="definitiva"></div>
+ 
+        <div >
+          <!-- <span (click)="cerrar_formulario('id01')" class="close" title="Close Modal">&times;</span> -->
+          <button type="button" class="btn btn-outline-primary" id="{{item[0]}}" *ngFor="let item of listado" #ho (click)="porfavordios(ho)">
+            <i class="material-icons" style="font-size:52px">{{item[2]}}</i>
+             <p class="aver">{{item[1]}}</p>       
+          </button>
+
+        </div>
+        <br>
+        <div>
+          <select class="tel_gen" #val (change)="msg(val)">
+              <option value="0">Acciones Disponibles</option>
+              <option value="1">Crear carpeta o Archivo</option>
+              <option value="2">Mover</option>
+              <option value="3">Copiar</option>
+              <option value="4">Renombrar Carpeta o Archivo</option>
+              <option value="5">Editar</option>
+          </select>
+        </div>
+         
+        <div *ngIf="accion_crear">
+            <input type="text" placeholder="Ingrese nombre (carpeta o archivo)" name="apellido" class="area_texto" #nombre required>
+            <br>
+            <select #tipo>
+              <option value="0">Carpeta</option>
+              <option value="1">Archivo</option>
+            </select>
+            <button type="button" class="btn btn-success" (click)="accion_boton(tipo,nombre)">{{msg_boton}}</button>
+        </div>
+
+        <div *ngIf="accion_renombrar">
+          <input type="text" placeholder="Ingrese nombre (carpeta o archivo)" name="apellido" class="area_texto" #nombre required>
+          <br>
+          <button type="button" class="btn btn-success" (click)="boton_Renombrar(nombre)">{{msg_boton}}</button>
+        </div>
+
+        <div *ngIf="accion_mover">
+          <button type="button" class="btn btn-success" (click)="boton_mover()">{{msg_boton}}</button>
+          <button type="button" class="btn btn-danger" (click)="boton_mover_cancelar()">Cancelar</button>
+        </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+
+</html>

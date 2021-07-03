@@ -60,4 +60,11 @@ Entre todo lo implementado lo mas importante fue:
     * Reporte de tree. 
     * reporte de BITMAP_inode. 
  
+# PROYECTO 2
+Es muy parecido al proyecto1, pero con bases de datos, servidor y cliente. La informacion del sistema de archivos se puede migrar a la base de datos con el comando syncronize. 
+#### Cliente FRONTEND
+El cliente web local, se creo en ANGULAR. y contiene todo el UI para utilizar el sistema de archivos. 
+#### BACKEND 
+El servidor local esta hecho en node js y la base de datos con la que se comunica esta hecha en ORACLE. 
+
 

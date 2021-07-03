@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+
+<body>
+
+<!--<button (click)="abrir_formulario('id01')" style="width:auto;">Login</button> action="/action_page.php"-->
+
+<div id="id01" class="modal"> 
+  <form class="modal-content animate" >
+    <div class="imgcontainer">
+     <!-- <span (click)="cerrar_formulario('id01')" class="close" title="Close Modal">&times;</span> -->
+      <i class="material-icons" style="font-size:120px">person</i>
+    </div>
+             
+    <div class="container">
+      <label><b>USERNAME</b></label>
+      <input type="text" placeholder="Ingrese Correo" #correo required>
+
+      <label><b>CONTRASEÑA</b></label>
+      <input type="password" placeholder="Ingrese Contraseña" #contrasena required>
+        
+      <button type="button" (click)="iniciar_sesion(correo, contrasena)" >Login</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn" routerLink="/signup">SIGN UP</button> <!-- (click)="gotopagina('signup')" 
+      <span class="psw">Olvido <a href="reset/password">Olvido su Contraseña?</a></span> -->
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body *ngIf="admin_logeado">
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+    <ul class="navbar-nav mi-navbar">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Administracion Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/reportes">Reportes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Cerrar Sesion</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <div class="row">
+        <h1>Area de Reportes</h1>  
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <h3>Generar reporte de:</h3>
+      </div>
+      <div class="col-sm-4 ">
+        <select class="form-control" #itemS (change)="dropdown(itemS)">
+          <option value="1">Lista de Nacimiento de Usuarios</option>
+          <option value="2">Listado de Carpetas y Archivos</option>
+          <option value="3">Listado de Modificacion A Carpetas por Rango de fecha</option>
+          <option value="4">Bitacora de Cambios Realizados</option>
+          <option value="5">Listado de clientes registrados y carpetas a las que tienen acceso</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <button (click)="consultar(itemS)"type="button" class="btn btn-primary" style="float:right">CONSULTAR</button>
+      </div>
+    </div>
+
+    
+    <div class="row" *ngIf="activo_fecha1">
+        <label for="fecha"><b>Fecha 1:</b></label>
+        <input type="date" id="myDate" value="2002-02-09" name="fecha">
+    </div>
+    <div class="row" *ngIf="activo_fecha2">
+        <label for="fecha"><b>Fecha 2:</b></label>
+        <input type="date" id="fecha2" value="2002-02-09" #fecha2>
+    </div>
+    <div class="row" *ngIf="activo_nombre">
+        <label ><b>Nombre Capeta o archivo:</b></label>
+        <input type="text" id="nombre" #nombre>
+    </div>
+    <br>
+    <div class="row" *ngIf="divReporte1">
+
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>APELLIDO</th>
+          <th>USERNAME</th>
+          <th>CORREO</th>
+          <th>F_NACIMIENTO</th>
+          <th>F_REGISTRO</th>
+          <th>ESTADO</th>
+          <th>TIPO_USUARIO</th>
+          <th>PARTICION</th>
+        </tr>
+        <tr *ngFor="let usuario of arreglo;">
+          <td>{{usuario[0]}}</td>
+          <td>{{usuario[1]}}</td>
+          <td>{{usuario[2]}}</td>
+          <td>{{usuario[3]}}</td>
+          <td>{{usuario[5]}}</td>
+          <td>{{usuario[9]}}</td>
+          <td>{{usuario[10]}}</td>
+          <td>{{usuario[12]}}</td>
+          <td>{{usuario[13]}}</td>
+          <td>{{usuario[14]}}</td>
+        </tr>
+        
+      </table>
+
+    </div>
+
+    <div class="row" *ngIf="divReporte2">
+
+     <h3 class="col_completa">VISTA ARBOL</h3>
+      <br>
+     <ul>
+      <ng-template #recursiveList let-list >
+        <li *ngFor="let item of list; let last = last" >
+          <span class={{item.algo}} id="{{item.actual}}">{{item.title}}</span>
+          <ul *ngIf="item.children.length > 0" class="carpetita active">
+            <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }"></ng-container>
+          </ul>
+        </li>
+      </ng-template>
+      <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: list }"></ng-container>
+    </ul>
+      
+    </div>
+
+    <div class="row" *ngIf="divReporte3">
+
+      <table>
+          <tr>
+            <th>ID_ACTUAL</th>
+            <th>NOMBRE</th>
+            <th>PARTICION</th>
+            <th>PROPIETARIO</th>
+            <th>TIPO</th>
+            <th>PERMISO</th>
+            <th>F_MODIFICACION</th>
+          </tr>
+
+          <tr *ngFor="let inodo of arreglo;">
+            <td>{{inodo[0]}}</td>
+            <td>{{inodo[2]}}</td>
+            <td>{{inodo[3]}}</td>
+            <td>{{inodo[4]}}</td>
+            <td>{{inodo[5]}}</td>
+            <td>{{inodo[6]}}</td>
+            <td>{{inodo[7]}}</td>           
+          </tr>        
+      </table>
+  
+    </div>
+
+    <div class="row" *ngIf="divReporte4">
+
+      <table>
+          <tr>
+            <th>ID_Bitacora</th>
+            <th>Username</th>
+            <th>Accion</th>
+            <th>Fecha</th>
+          </tr>
+
+          <tr *ngFor="let inodo of arreglo;">
+            <td>{{inodo[0]}}</td>
+            <td>{{inodo[1]}}</td>
+            <td>{{inodo[2]}}</td>
+            <td>{{inodo[3]}}</td>        
+          </tr>        
+      </table>
+  
+    </div>
+
+    <div class="row" *ngIf="divReporte5">
+
+        <table>
+            <tr>
+              <th>ID</th>
+              <th>NOMBRE</th>
+              <th>USERNAME</th>
+              <th>CORRERO</th>
+              <th>PARTICION</th>
+              <th>F_REGISTRO</th>
+              <th># CARPETAS</th>
+              <th># ARCHIVOS</th>
+            </tr>
+            <tr *ngFor="let usuario of arreglo;">
+                <td>{{usuario[0]}}</td>
+                <td>{{usuario[1]}}</td>
+                <td>{{usuario[2]}}</td>
+                <td>{{usuario[3]}}</td>
+                <td>{{usuario[4]}}</td>
+                <td>{{usuario[5]}}</td>
+                <td>{{usuario[6]}}</td>   
+                <td>{{usuario[7]}}</td>          
+              </tr> 
+               
+        </table>
+    
+    </div>        
+  
+  </div>
+
+  </body>
+
+  </html>

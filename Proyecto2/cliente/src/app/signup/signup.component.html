@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+
+<div id="id01" class="modal">
+  <form (submit)="metodo_agregarU(usrname,nombre,apdo,correo,pwd,tel,genero,dir,fecha)" class="modal-content" >
+    <div class="container">
+      <h2>Rellene el formulario para crear una cuenta.</h2>
+      <hr>
+      <label for="nombre"><b>Nombre</b></label>
+      <input type="text" placeholder="Ingrese nombre" name="nombre" class="area_texto" #nombre required>
+
+      <label for="apellidos"><b>Apellido</b></label>
+      <input type="text" placeholder="Ingrese apellido" name="apellido" class="area_texto" #apdo required>
+
+      <label for="email"><b>Correo</b></label>
+      <input type="text" placeholder="Ingrese Correo" name="email" class="area_texto" #correo required>
+
+      <label for="usrn"> <b>Username</b></label>
+      <input type="text" placeholder="Ingrese nuevo usuario" class="inpt_" #usrname required>
+
+      <label for="psw"><b>Contraseña</b></label>
+      <input type="password" placeholder="Ingrese Contraseña" name="psw" class="tel_gen" #pwd required>
+
+    
+      <label for="telefono"><b>Telefono</b></label>
+      <input type="number" placeholder="Ingrese Telefono" name="telefono" class="tel_gen" #tel required>
+      
+      <label for="genero"><b>Genero</b></label>
+      <select class="tel_gen" #genero>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+      </select>
+      <!--<input type="text" placeholder="Ingrese Genero" name="genero" class="tel_gen" #genero required> -->
+
+       <label for="dir"><b>Direccion</b></label>
+       <input type="text" placeholder="Ingrese su Direccion" name="dir" class="area_texto" #dir required>
+
+       <label for="fecha"><b>Fecha de nacimiento</b></label>
+       <input type="date" id="myDate" value="2002-02-09" #fecha>
+       <!--<input type="text" placeholder="Ingrese fecha (month/day/year)" name="fecha" class="area_texto" #fecha required>-->
+      
+       <input #file type="file" accept='image/*' (change)="preview(file.files)" style="width:100%" />
+       <img [src]="imgURL" height="200" *ngIf="imgURL">
+       
+       
+<!-- Emailonclick="document.getElementById('id01').style.display='none'"
+   <input type="file" accept="image/*"> 
+       <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
+
+       <img src="" height="200" alt="Image preview..."><label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repita Password" name="psw-repeat" class="area_texto" #psw required>     
+           <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>-->
+
+
+      <div class="clearfix">
+        <button type="button" class="cancelbtn">Cancelar</button>
+        <button  class="signupbtn">Enviar</button>
+      </div>
+    </div>
+    <div class="alert alert-danger" [hidden]="hiddenAlert">
+    <strong>Error!</strong> <pre>{{errMensaje}}</pre> 
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

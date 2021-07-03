@@ -1,0 +1,58 @@
+
+ul, #myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {  /*Es utilizable*/
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before { /*mueve la figura de puntero  style="display:none"*/
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+ 
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: none;
+}
+
+.carpeta{
+    background: blueviolet;
+}
+
+.bg_{
+  background: brown;
+}
+
+.carpetita{
+  background: brown;
+}
+
+.archivo{
+  background: lightseagreen;
+}
+
+.aver{
+  width: 100%;
+  color: black;
+}

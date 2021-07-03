@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body *ngIf="usuario_logeado">
+
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+  <ul class="navbar-nav mi-navbar">
+    <li class="nav-item active">
+      <a class="nav-link" href="/main/cliente">Mi Perfíl</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/sistemaarchivos">Mi Sistema de Archivos</a>
+    </li>
+  </ul>
+</nav>
+
+<!--<div>
+  <table class = "tablas">
+      <tr>
+      <td align="right">  <i class="material-icons" style="font-size:36px">add_shopping_cart</i></td>
+        <td id="mat"> Publishes and Sells</td>
+        <td> Adquisiciones al alcance de su bolsillo</td>
+        <td> <a href="/login">SIGN IN</a> </td> 
+      </tr> 
+  </table>
+</div>-->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-10" style="padding: 10px">
+      <h2 class="h2">ALIE STORAGE</h2>
+    </div>
+    <div class="col-2" style="padding: 10px">
+        <a href="/" (click) = "cerrar_sesion()">Cerrar Sesion</a>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
